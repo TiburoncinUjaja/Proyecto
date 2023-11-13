@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style4.css}">
+    <link rel="icon" th:href="@{/Source/icono.ico}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest. Carmen | Menu</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo" onclick="scrollToTop()">
+                <img th:src="@{/Source/sorc1.png}" class="source11" alt="icono1">
+            </div>
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a th:href="@{/}">
+                            <li>
+                                <i class="img">  
+                                    <div class="logo">
+                                        <img th:src="@{/Source/sorc1.png}" alt="icono1">
+                                    </div>
+                                </i>
+                            </li>
+                        </a>
+                        <a th:href="@{/home}">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-magnifying-glass searchicon" id="searchicon1"></i>
+                            </li>
+                        </a>
+                        <div class="search" id="searchinput1">
+                            <input type="search">
+                            <i class="fa-solid fa-magnifying-glass srchicon"></i>
+                        </div>
+                        <a th:href="@{/login}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-mb"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a th:href="@{/home}">
+                            <li>Inicio</li>
+                        </a>
+                        <a th:href="@{/reserv}">
+                            <li>Reserva</li>
+                        </a>
+                        <a th:href="@{/about}">
+                            <li>Sobre Nosotros</li>
+                        </a>
+                        <a th:href="@{/menu}">
+                            <li>Menú</li>
+                        </a>
+                        <a href="#">
+                            <li>Idioma
+                                <ul class="lenguajes">
+                                    <li><a href="#">Español</a></li>
+                                    <li><a href="#">Ingles</a></li>
+                                    <li><a href="#">Frances</a></li>
+                                </ul>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a th:href="@{/home}">
+                        <li>Inicio</li>
+                    </a>
+                    <a th:href="@{/reserv}">
+                        <li>Reserva</li>
+                    </a>
+                    <a th:href="@{/about}">
+                        <li>Sobre Nosotros</li>
+                    </a>
+                    <a th:href="@{/menu}">
+                        <li>Menú</li>
+                    </a>
+                    <a href="#">
+                        <li>Idioma
+                            <ul class="lenguajes">
+                                <li><a href="#">Español</a></li>
+                                <li><a href="#">Ingles</a></li>
+                                <li><a href="#">Frances</a></li>
+                            </ul>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a th:href="@{/home}">
+                        <li>
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2"></i>
+                        </li>
+                    </a>
+                    <div class="search" id="searchinput2">
+                        <input type="search">
+                        <i class="fa-solid fa-magnifying-glass srchicon"></i>
+                    </div>
+                    <a th:href="@{/login}">
+                        <li>
+                            <i class="fa-solid fa-user" id="user-lap"></i>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="home">
+        <div class="main_slide3">
+            <div class="fav-head">
+                <h3>Nuestro menu completo a tu disposición</h3>
+            </div>
+            <div class="fav-food">
+                <div class="item">
+                    <div>
+                        <img th:src="@{/Source/Frijoles.png}" alt="frijoles_item">
+                    </div>
+                    <h3>Arroz con frijoles</h3>
+                    <p class="ingredients">Ingredientes</p>
+                    <ul>
+                        <li>Arroz blanco</li>
+                        <li>Frijol bola roja</li>
+                        <li>Plátano frito</li>
+                        <li>Carne desmechada</li>
+                        <li>Ensalada al gusto</li>
+                    </ul>
+                    <p class="fav-price">$16.000</p>
+                </div>
+            </div>
+            <div class="dsgn"></div>
+        </div>
+    </div>
+    
+    <script src="../js/javasc.js"></script>
+
+</body>
+</html>

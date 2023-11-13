@@ -1,0 +1,107 @@
+body {
+   
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.booking-widget {
+    background: url('../Source/tia2.jpeg') no-repeat center center fixed;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+.widget-title {
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: rgba(255, 223, 218, 0.819);
+    
+}
+
+.widget-title h2 {
+    font-size: 36px;
+}
+
+.widget-description {
+    text-align: center;
+    font-size: 18px;
+}
+
+.widget-form {
+    padding: 50px;
+    background: rgba(255, 223, 218, 0.795);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(254, 206, 181);
+    border-radius: 5px;
+    background: rgb(255, 241, 240);
+    color: #242424;
+    font-size: 16px;
+}
+
+.booking-form input[type="number"] {
+    background: rgb(255, 241, 240);
+    color: #242424;
+}
+
+.select-group{
+    width: 103.5%;
+}
+
+.booking-form input[type="date"],
+.booking-form input[type="time"] {
+    background: rgb(255, 183, 3);
+    color: #fff;
+}
+
+.submit-btn {
+    width: 103.5%;
+    padding: 15px;
+    background: rgb(242, 101, 34);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: rgb(244, 63, 63);
+}
+
+.summary-form {
+    background: rgba(213, 123, 33, 0.871);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.summary-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.summary-list {
+    list-style: none;
+    font-size: 16px;
+}
+
+.summary-list li {
+    margin-bottom: 10px;
+}

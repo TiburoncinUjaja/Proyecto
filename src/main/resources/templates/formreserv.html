@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style6.css}">
+    <link rel="icon" th:href="@{/Source/icono.ico}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest. Carmen | Formulario</title>
+</head>
+<body>
+    <div class="booking-widget" id="booking-widget-6078763396051">
+        <div class="widget-container">
+            <div class="widget-content">
+                <div class="widget-row">
+                    <div class="widget-col">
+                        <div class="widget-title">
+                            <h2>Reserva en línea ahora</h2>
+                            <div class="widget-description">Solicita una nueva cita</div>
+                        </div>
+                        <div class="widget-form">
+                            <form class="booking-form">
+                                <div class="form-group">
+                                    <div class="select-group">
+                                        <select th:name="${tipoServicio}">
+                                            <option value="domicilio">Domicilio</option>
+                                            <option value="reservar-mesa">Reservar mesa</option>
+                                            <option value="recoger-en-tienda">Recoger en tienda</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" th:name="${cantidadPersonas}" placeholder="Cantidad de personas" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" th:name="${fecha}" min="2023-11-09" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" th:name="${hora}" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" th:name="${nombres}" placeholder="Nombres" maxlength="40" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" th:name="${apellido}" placeholder="Apellido" maxlength="40" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" th:name="${correo}" placeholder="Correo electrónico" required>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="submit" class="submit-btn">Reservar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="widget-col">
+                        <div class="summary-form">
+                            <div class="summary-title">Resumen:</div>
+                            <ul class="summary-list">
+                                <li>Tipo de servicio: <span th:text="${tipoServicio}">-</span></li>
+                                <li>Cantidad de personas: <span th:text="${cantidadPersonas}">-</span></li>
+                                <li>Fecha: <span th:text="${fecha}">yyyy-mm-dd</span></li>
+                                <li>Hora: <span th:text="${hora}">hh:mm am/pm</span></li>
+                                <li>Duración: 0 h 00 min</li>
+                                <li>Precio: 00.00 USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

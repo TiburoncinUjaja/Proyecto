@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+    <link rel="icon" th:href="@{/Source/icono.ico}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Rest. Carmen | Sobre nosotros</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo" onclick="scrollToTop()">
+                <img th:src="@{/Source/icono.ico}" class="source11" alt="icono1">
+            </div>
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a th:href="@{/}">
+                            <li>
+                                <i class="img">  
+                                    <div class="logo">
+                                        <img th:src="@{/Source/sorc1.png}" alt="icono1">
+                                    </div>
+                                </i>
+                            </li>
+                        </a>
+                        <a th:href="@{/home}">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-magnifying-glass searchicon" id="searchicon1"></i>
+                            </li>
+                        </a>
+                        <div class="search" id="searchinput1">
+                            <input type="search">
+                            <i class="fa-solid fa-magnifying-glass srchicon"></i>
+                        </div>
+                        <a th:href="@{/login}">
+                            <li>
+                                <i class="fa-solid fa-user" id="user-mb"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a th:href="@{/home}">
+                            <li>Inicio</li>
+                        </a>
+                        <a th:href="@{/reserv}">
+                            <li>Reserva</li>
+                        </a>
+                        <a th:href="@{/about}">
+                            <li>Sobre Nosotros</li>
+                        </a>
+                        <a th:href="@{/menu}">
+                            <li>Menú</li>
+                        </a>
+                        <a href="#">
+                            <li class="#">Idioma
+                                <ul class="lenguajes">
+                                    <li><a href="#">Español</a></li>
+                                    <li><a href="#">Ingles</a></li>
+                                    <li><a href="#">Frances</a></li>
+                                </ul>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a th:href="@{/home}">
+                        <li>Inicio</li>
+                    </a>
+                    <a th:href="@{/reserv}">
+                        <li>Reserva</li>
+                    </a>
+                    <a th:href="@{/about}">
+                        <li>Sobre Nosotros</li>
+                    </a>
+                    <a th:href="@{/menu}">
+                        <li>Menú</li>
+                    </a>
+                    <a href="#">
+                        <li class="#">Idioma
+                            <ul class="lenguajes">
+                                <li><a href="#">Español</a></li>
+                                <li><a href="#">Ingles</a></li>
+                                <li><a href="#">Frances</a></li>
+                            </ul>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a th:href="@{/home}">
+                        <li>
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass searchicon" id="searchicon2"></i>
+                        </li>
+                    </a>
+                    <div class="search" id="searchinput2">
+                        <input type="search">
+                        <i class="fa-solid fa-magnifying-glass srchicon"></i>
+                    </div>
+                    <a th:href="@{/login}">
+                        <li>
+                            <i class="fa-solid fa-user" id="user-lap"></i>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/Source/baner1.png}" class="d-block w-100" alt="baner_item">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/Source/baner2.jpg}" class="d-block w-100" alt="baner2_item">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/Source/baner3.png}" class="d-block w-100" alt="baner3_item">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="home">
+        <div class="main_slide3">
+            <div class="fav-head">
+                <h2>Sobre nosotros</h2>
+                <h3>Bienvenidos</h3>
+                <p>¡Disfruta de un delicioso viaje de sabores internacionales y descubre tu nuevo plato favorito en nuestro restaurante! Desde los clásicos favoritos hasta platos de fusión creativa, 
+                    ofrecemos una emocionante variedad de opciones culinarias para todos los apetitos. Nuestros chefs se enorgullecen de preparar comidas de alta calidad hechas con ingredientes frescos, 
+                    por lo que siempre puedes contar con nosotros para una experiencia gastronómica verdaderamente exquisita. ¡Ven a visitarnos hoy y deja que tus papilas gustativas exploren!</p>
+            </div>
+            <div class="fav-food">
+                <div class="item">
+                    <div>
+                        <img th:src="@{/Source/client1.jpeg}" alt="cliente_item">
+                    </div>
+                    <h3>Maria Paula</h3>
+                    <p class="fav-price">★★★★☆</p>
+                    <ul>
+                        <li>Excelente comida y ambiente encantador. El personal fue muy atento y servicial. 
+                            Definitivamente recomendaría probar sus platos de pasta, ¡son deliciosos!</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div>
+                        <img th:src="@{/Source/client2.jpeg}" alt="cliente2_item">
+                    </div>
+                    <h3>Mauricio Yara</h3>
+                    <p class="fav-price">★★★★☆</p>
+                    <ul>
+                        <li>Una experiencia gastronómica maravillosa en general. 
+                            La presentación de los platos era impecable y el sabor era exquisito. 
+                            Sin embargo, el tiempo de espera para los platos principales fue un poco más largo de lo esperado</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div>
+                        <img th:src="@{/Source/client3.jpg}" alt="cliente3_item">
+                    </div>
+                    <h3>Privado</h3>
+                    <p class="fav-price">★★★★☆</p>
+                    <ul>
+                        <li>La variedad en el menú es impresionante y la calidad de los alimentos es excepcional. 
+                            El restaurante tiene una atmósfera acogedora y elegante. Sin embargo, 
+                            los precios podrían ser un poco elevados para algunas personas, 
+                            pero valen la pena por la calidad de la comida y el servicio</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dsgn"></div>
+        </div>
+        <div class="main_slide2">
+            <div class="question">
+                <div>
+                    <h2>Servicios de nosotros <span> para ustedes </span></h2>
+                </div>
+                <div>
+                    <div class="q-ans">
+                        <div>
+                            <img th:src="@{/Source/recoger.png}" alt="Recoger_item">
+                        </div>
+                        <div>
+                            <h4>Recoger en tienda</h4>
+                            <p>Haz tu pedido con antelación y recógelo en nuestra tienda en solo 30 minutos. Disfruta de tu comida recién preparada y lista para llevar a donde quieras.</p>
+                        </div>
+                    </div>
+                    <div class="q-ans">
+                        <div>
+                            <img th:src="@{/Source/domicilio.png}" alt="Domicilio_item">
+                        </div>
+                        <div>
+                            <h4>Domicilios a neiva</h4>
+                            <p>¿Prefieres disfrutar de nuestra deliciosa comida en la comodidad de tu hogar? Realiza tu pedido con un costo adicional de 9.000 
+                                pesos para la entrega a domicilio y déjanos encargarnos de llevarte tus platillos favoritos directamente a tu puerta.</p>
+                        </div>
+                    </div>
+                    <div class="q-ans">
+                        <div>
+                            <img th:src="@{/Source/reservar.png}" alt="Reservar_item">
+                        </div>
+                        <div>
+                            <h4>Reservar una mesa</h4>
+                            <p>¿Planeando una ocasión especial? Asegura tu espacio reservando una mesa con una semana de anticipación. 
+                                Garantiza un lugar en nuestro restaurante para disfrutar de una experiencia culinaria excepcional y sin preocupaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-1">
+            <div class="logo">
+                <img th:src="@{/Source/sorc1.png}" alt="Logo1">
+            </div>
+            <div>
+                <address>
+                    <p>email: LaTiaCarmen@gmail.com</p>
+                    <p>Celular: 3002265287</p>
+                    <p>Diseñador: Juan David Camacho T</p>
+                    <p>Facultad: Software</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-2">
+            <img th:src="@{/Source/usco.png}" alt="Logo1">
+            <h2>Programación Web</h2>
+        </div>
+    </div>
+
+    <script src="../js/javasc.js"></script>
+</body>
+</html>
