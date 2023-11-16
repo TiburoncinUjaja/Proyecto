@@ -12,7 +12,9 @@
   <div class="message signup">
     <div class="btn-wrapper">
       <button class="button" id="signup">Registrate</button>
-      <button class="button" id="login"> Ingresa</button>
+      <a th:href="@{/login}">
+        <button class="button" id="login"> Ingresa</button>
+      </a>
       <a th:href="@{/home}">
         <img th:src="@{/Source/sorc1.png}" class="source1" alt="logo1">
       </a>    
@@ -31,24 +33,8 @@
 	</form>
 
   </div>
-  <div class="form form--login">
-    <div class="form--heading">Bienvenido otra vez </div>
-    <form autocomplete="off" th:action="@{/login}" method="post">
-      <div class="alert" th:if=${param.error}>
-        <div class="alerta"> Credenciales no validas</div>      </div>
-      <div class="alert" th:if=${param.Logout}>
-        <div class="alerta"> Ha cerrado exitosamente sesion</div>
-      </div>
-      <input name="email" type="email" for="email" id="email" required autofocus="autofocus" placeholder="Correo">
-      <input name="password" type="password" for="password" id="password" required autofocus="autofocus" placeholder="Contraseña">
-      <button type="submit" class="button" id="Login-submit">Ingresar</button>
-    </form>
-  </div>
 </div>
 <!-- partial -->
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script src="../js/javas.js"></script>
 
 </body>
 </html>

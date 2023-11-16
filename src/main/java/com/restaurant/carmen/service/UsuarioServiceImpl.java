@@ -20,35 +20,39 @@ import com.restaurant.carmen.repository.UsuarioRepository;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
-	
-	private BCryptPasswordEncoder passwordEncoder;
+    
+    private BCryptPasswordEncoder passwordEncoder;
+    
+    private UsuarioRepository usuarioRepository;
 
-	
-	private UsuarioRepository usuarioRepository;
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+    
+    @Autowired
+    public UsuarioServiceImpl(BCryptPasswordEncoder passwordEncoder, UsuarioRepository usuarioRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.usuarioRepository = usuarioRepository;
+    }
 
-	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
-		this.usuarioRepository = usuarioRepository;
-	}
+    @Override
+    public Usuario save(UsuarioRegistroDTO registroDTO) {
+        Usuario usuario = new Usuario(registroDTO.getNombre(),
+                registroDTO.getEmail(),
+                passwordEncoder.encode(registroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
+        return usuarioRepository.save(usuario);
+    }
 
-	@Override
-	public Usuario save(UsuarioRegistroDTO registroDTO) {
-		Usuario usuario = new Usuario(registroDTO.getNombre(),
-				registroDTO.getEmail(),
-				passwordEncoder.encode(registroDTO.getPassword()),Arrays.asList(new Rol("ROLE_USER")));
-		return usuarioRepository.save(usuario);
-	}
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByEmail(username);
+        if (usuario == null) {
+            throw new UsernameNotFoundException("Usuario o contraseña inválidos");
+        }
+        return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
+    }
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = usuarioRepository.findByEmail(username);
-		if(usuario == null) {
-			throw new UsernameNotFoundException("Usuario o password inválidos");
-		}
-		return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
-	}
-	private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol>roles){
-		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
-	}
-	
-
+    private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol> roles) {
+        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
+    }
 }

@@ -3,6 +3,7 @@ package com.restaurant.carmen.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -21,6 +22,7 @@ import com.restaurant.carmen.service.UsuarioService;
 public class SecurityConfiguration {
 
     @Autowired
+    @Lazy
     private UsuarioService usuarioService;
 
     @Bean
@@ -47,18 +49,25 @@ public class SecurityConfiguration {
                         authorizeRequests
                                 // Permite acceso a las rutas de documentos HTML sin autenticación
                                 .requestMatchers(
-                                        HttpMethod.GET, "/", "registro**", "/home**", "/about**", "/menu**", "/reserv**", "/usuarios/**").permitAll()
+                                        HttpMethod.GET, "/", "/login**", "/registro**", "/home**", "/about**", "/menu**", "/reserv**", "/usuarios/**").permitAll()
                                 // Permite acceso a las rutas de recursos estáticos (CSS, JS, imágenes, etc.)
                                 .requestMatchers(
                                         HttpMethod.GET, "/css/**", "/js/**", "/Source/**").permitAll()
+                                .requestMatchers(
+                                        HttpMethod.POST, "/registro", "/login").permitAll()
                                 // Restringe el acceso a otras rutas a usuarios autenticados
                                 .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
-                        .loginPage("/registro")
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/formreserv", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
+                		.logoutUrl("/logout") // Especifica la URL de cierre de sesión
+                        .logoutSuccessUrl("/login?logout") // URL a la que redirigir después de cerrar sesión
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID") // Elimina las cookies de sesión
                         .permitAll()
                 )
                 .build();

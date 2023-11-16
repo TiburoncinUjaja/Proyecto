@@ -11,12 +11,21 @@
 </head>
 <body>
     <div class="booking-widget" id="booking-widget-6078763396051">
+<div th:if="${isAdmin}">
+    <form th:action="@{/menufull}" method="get">
+        <button type="submit">Ir al Menú</button>
+    </form>
+</div>
         <div class="widget-container">
             <div class="widget-content">
                 <div class="widget-row">
                     <div class="widget-col">
                         <div class="widget-title">
                             <h2>Reserva en línea ahora</h2>
+<div class="widget-description">Hola, <span th:text="${username}"></span>. 
+        <span th:if="${isAdmin}">Eres un administrador.</span>
+        <span th:unless="${isAdmin}">Eres un usuario regular.</span>
+    </div>
                             <div class="widget-description">Solicita una nueva cita</div>
                         </div>
                         <div class="widget-form">
@@ -64,6 +73,12 @@
                                 <li>Hora: <span th:text="${hora}">hh:mm am/pm</span></li>
                                 <li>Duración: 0 h 00 min</li>
                                 <li>Precio: 00.00 USD</li>
+								<form th:action="@{/logout}" method="post">
+       							 <input type="submit" value="Cerrar Sesión"/>
+							
+ 							   </form>
+
+
                             </ul>
                         </div>
                     </div>
