@@ -17,6 +17,14 @@
     display: block;
     
 }
+.google{
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 4;
+    right: 0%;
+}
 .source11 {
     cursor: pointer;
     position: fixed;

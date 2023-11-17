@@ -62,16 +62,6 @@
                         <a th:href="@{/menu}">
                             <li>Menú</li>
                         </a>
-                        <a href="#">
-                            <li>Idioma
-                                <ul class="lenguajes">
-                                    <li><a href="#">Español</a></li>
-                                    <li><a href="#">Ingles</a></li>
-                                    <li><a href="#">Frances</a></li>
-                                    <li><a href="#">Aleman</a></li>
-                                </ul>
-                            </li>
-                        </a>
                     </ul>
                 </div>
             </div>
@@ -92,16 +82,6 @@
                     </a>
                     <a th:href="@{/menu}">
                         <li>Menú</li>
-                    </a>
-                    <a href="#">
-                        <li>Idioma
-                            <ul class="lenguajes">
-                                <li><a href="#">Español</a></li>
-                                <li><a href="#">Ingles</a></li>
-                                <li><a href="#">Frances</a></li>
-                                <li><a href="#">Aleman</a></li>
-                            </ul>
-                        </li>
                     </a>
                 </ul>
             </div>
@@ -130,6 +110,7 @@
             </div>
         </div>
     </header>
+    <div id="google_translate_element" class="google"></div>
     <div class="home">
         <div class="main_slide">
             <div>
@@ -202,6 +183,12 @@
             <h2>Programación Web</h2>
         </div>
     </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
+                }
+        </script>
+	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="../js/javasc.js"></script>
 </body>
 </html>

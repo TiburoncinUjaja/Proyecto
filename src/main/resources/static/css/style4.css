@@ -26,6 +26,14 @@
     filter: drop-shadow(4px 6px 8px rgba(213, 123, 33, 0.871));
     
 }
+.google{
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 4;
+    right: 0%;
+}
 
 .scrolled .logo img {
     padding-top: 10px;

@@ -48,15 +48,6 @@
             <a th:href="@{/menu}">
               <li>Menú</li>
             </a>
-            <a href="#">
-              <li>Idioma
-                <ul class="lenguajes">
-                  <li><a href="#">Español</a></li>
-                  <li><a href="#">Ingles</a></li>
-                  <li><a href="#">Frances</a></li>
-                </ul>
-              </li>
-            </a>
           </ul>
         </div>
       </div>
@@ -74,15 +65,6 @@
           </a>
           <a th:href="@{/menu}">
             <li>Menú</li>
-          </a>
-          <a href="#">
-            <li>Idioma
-              <ul class="lenguajes">
-                <li><a href="#">Español</a></li>
-                <li><a href="#">Ingles</a></li>
-                <li><a href="#">Frances</a></li>
-              </ul>
-            </li>
           </a>
         </ul>
       </div>
@@ -102,7 +84,9 @@
       </div>
     </div>
   </header>
+  <div id="google_translate_element" class="google"></div>
   <div class="home">
+    
     <div class="main_slide">
       <div>
         <h1>Sirviéndote <span th:text="${' con amor'}"></span> de familia</h1>
@@ -262,8 +246,10 @@
    <!--<div class="letter"><div class="letter-head"><h2>No se despues para algo servira <span>no c</span>miremos</h2></div><div class="letter-input"><div><input type="email" placeholder="Example.com"></div><button class="red_btn">Unete</button></div></div></div>--></div>
     </div>
   <div class="footer">
+
     <div class="footer-1">
       <div class="logo"><img src="/Source/sorc1.png" alt="Logo1"></div>
+      <div id="google_translate_element1" class="google1"></div>
       <div><address><p>email: LaTiaCarmen@gmail.com</p><p>Celular: 3002265287</p><p>Diseñador: Juan David Camacho T</p><p>Facultad: Software</p></address></div>
     </div>
     <div class="footer-2"><img src="/Source/usco.png" alt="Logo1">
@@ -271,6 +257,13 @@
     </div>
   </div>
   <script src="../js/javasc.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
+            }
+    </script>
+    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

@@ -23,6 +23,13 @@ body {
     background-color: rgba(255, 223, 218, 0.819);
     
 }
+.google{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 4;
+    right: 0%;
+}
 
 .widget-title h2 {
     font-size: 36px;

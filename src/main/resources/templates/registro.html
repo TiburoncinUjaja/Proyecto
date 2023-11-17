@@ -10,6 +10,7 @@
 <!-- partial:index.partial.html -->
 <div class="container">
   <div class="message signup">
+    <div id="google_translate_element" class="google"></div>
     <div class="btn-wrapper">
       <button class="button" id="signup">Registrate</button>
       <a th:href="@{/login}">
@@ -34,7 +35,13 @@
 
   </div>
 </div>
-<!-- partial -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
+          }
+  </script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 </body>
 </html>
