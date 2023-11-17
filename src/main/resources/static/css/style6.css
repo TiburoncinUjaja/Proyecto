@@ -1,114 +1,192 @@
+html,
 body {
-   
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+  margin: 0px;
 }
 
-.booking-widget {
-    background: url('../Source/tia2.jpeg') no-repeat center center fixed;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+.wrapper, input, button{
+ /*  width: 600px; */
+font-family: 'Raleway', sans-serif;
 }
 
-
-.widget-title {
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    background-color: rgba(255, 223, 218, 0.819);
-    
+.inner {
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  text-align: center;
 }
+
 .google{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    z-index: 4;
-    right: 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 4;
+  right: 0%;
 }
 
-.widget-title h2 {
-    font-size: 36px;
+.display-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    height: 60px;
+    padding: 0 7vw;
+    background-color: rgb(255, 223, 218);
+    box-shadow: 0 2px 20px rgb(254, 166, 166); 
+    border-bottom: 2px solid rgb(254, 206, 181); 
+    position: relative;
+    z-index: 3;
 }
 
-.widget-description {
-    text-align: center;
-    font-size: 18px;
+
+.back img {
+  width: 50px;
 }
 
-.widget-form {
-    padding: 50px;
-    background: rgba(255, 223, 218, 0.795);
-    border-radius: 10px;
-    text-align: center;
+.product-picture {
+  margin: 30px 0 0 0;
 }
 
-.booking-form input,
-.booking-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid rgb(254, 206, 181);
-    border-radius: 5px;
-    background: rgb(255, 241, 240);
-    color: #242424;
-    font-size: 16px;
+.product-picture img {
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 1em grey;
 }
 
-.booking-form input[type="number"] {
-    background: rgb(255, 241, 240);
-    color: #242424;
+.product-title {
+  font-size: 18px;
 }
 
-.select-group{
-    width: 103.5%;
+.product-text {
+  margin: 50px 0 50px 0;
+  font-size: 18px;
 }
 
-.booking-form input[type="date"],
-.booking-form input[type="time"] {
-    background: rgb(255, 183, 3);
-    color: #fff;
+.table-number {
+  font-size: 50px;
+}
+
+.table {
+  line-height: 60px;
+}
+
+.table button {
+  color: black;
+  background: transparent;
+  border: 0px solid black;
+  border-radius:2px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+/*   box-shadow: 0 2px 1em grey; */
+  /* box-shadow: 0 2px 1em grey; */
+}
+
+.table button:active {
+  transform: translate(0px, 2px);
+  -webkit-transform: translate(0px, 2px);
+  -moz-transform: translate(0px, 2px);
+  -ms-transform: translate(0px, 2px);
+box-shadow: 0px 1px 0px 0px;
+}
+
+button:disabled {
+    opacity: 0.65;
+}
+
+.minus {
+  float: left;
+}
+
+.plus {
+  float: right;
+}
+
+.date-title {
+  margin: 30px;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.date-picker input {
+  margin-right: 10px;
+}
+
+.submit-btn button {
+  width: 333px;
+  text-align: center;
 }
 
 .submit-btn {
-    width: 103.5%;
-    padding: 15px;
+  margin: 20px 0 20px 0;
+}
+
+.submit-btn button {
+  color: black;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius:2px;
+  width: 200px;
+  height: 50px;
+/*   box-shadow: 0 2px 1em grey; */
+  font-size:20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.submit-btn button:active {
+  transform: translate(0px, 2px);
+  -webkit-transform: translate(0px, 2px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+button, input{
+  text-align: center;
+  border-radius: 7px;
+    width: 100%;
+    height: 30px;
+    border: 0;
+    outline: 0;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    z-index: 3;
     background: rgb(242, 101, 34);
-    border: none;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 5px;
+    font-family: "Source Sans Pro", sans-serif;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-.submit-btn:hover {
-    background: rgb(244, 63, 63);
+.botton1 a {
+  width: 333px;
+  text-align: center;
+  border-radius: 7px;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+  z-index: 3;
+  background: rgb(242, 101, 34);
+  font-family: "Source Sans Pro", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+
 }
 
-.summary-form {
-    background: rgba(213, 123, 33, 0.871);
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-    color: #fff;
+.credit{
+  position:relative;
+  bottom:0px;
+  left:5px;
+  margin:0px;
+  width:50%;
 }
-
-.summary-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.summary-list {
-    list-style: none;
-    font-size: 16px;
-}
-
-.summary-list li {
-    margin-bottom: 10px;
+.credit p{
+  display:inline;
 }

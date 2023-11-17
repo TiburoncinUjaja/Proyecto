@@ -62,8 +62,18 @@ public class RegistroControlador {
 	
 	@GetMapping("/menufull")
     @Secured("ROLE_ADMIN")
-    public String menuFull() {
-        // Lógica del controlador para la página del menú
+    public String menuFull(Model model, Principal principal) {
+        String username = principal.getName();
+        
+        model.addAttribute("username", username);
+        
+        Collection<? extends GrantedAuthority> authorities = ((Authentication) principal).getAuthorities();
+
+        boolean isAdmin = authorities.stream()
+                .anyMatch(role -> role.getAuthority().equals("ROLE_ADMIN"));
+
+        model.addAttribute("username", username);
+        model.addAttribute("isAdmin", isAdmin);
         return "menufull";
     }
 

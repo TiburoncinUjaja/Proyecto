@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style7.css}">
+    <link rel="icon" th:href="@{/Source/icono.ico}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest. Carmen | Menu</title>
+</head>
+<body>
+    <aside class="sidebar">
+        <div id="leftside-navigation" class="nano">
+            <ul class="nano-content">
+                <li>
+                    <a th:href="@{/dashboard}"><i class="fa fa-power-off"></i><span><form class="formlog" th:action="@{/logout}" method="post">
+                        <input class="botton-close" type="submit" value="Cerrar Sesión"/>
+                    </form></span></a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:void(0);"><i class="fa fa-table"></i><span>Usuarios</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <ul>
+                        <li><a th:href="@{/tables-basic}">Usuarios registrados</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:void(0);"><i class="fa fa fa-tasks"></i><span>Reservas</span><i class="arrow fa fa-angle-right pull-right"></i></a>
+                    <ul>
+                        <li><a th:href="@{/forms-components}">Reservas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a th:href="@{/dashboard}"><i></i><span><div id="google_translate_element" class="google"></div></span></a>
+                </li>
+            </ul>
+        </div>
+    </aside>  
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
+                }
+        </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="../js/javasca.js"></script>
+
+</body>
+</html>

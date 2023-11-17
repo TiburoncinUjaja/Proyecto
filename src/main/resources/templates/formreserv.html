@@ -3,95 +3,66 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/style6.css}">
     <link rel="icon" th:href="@{/Source/icono.ico}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rest. Carmen | Formulario</title>
+    <script th:src="@{/js/javacc.js}"></script>
+    <title>Rest. Carmen | Reservar</title>
 </head>
 <body>
-    <div class="booking-widget" id="booking-widget-6078763396051">
-<div th:if="${isAdmin}">
-    <form th:action="@{/menufull}" method="get">
-        <button type="submit">Ir al Menú</button>
-    </form>
-</div>
-        <div class="widget-container">
-            <div class="widget-content">
-                <div class="widget-row">
-                    <div class="widget-col">
-                        <div class="widget-title">
-                            <div id="google_translate_element" class="google"></div>
-                            <h2>Reserva en línea ahora</h2>
-<div class="widget-description">Hola, <span th:text="${username}"></span>. 
-        <span th:if="${isAdmin}">Eres un administrador.</span>
-        <span th:unless="${isAdmin}">Eres un usuario regular.</span>
-    </div>
-                            <div class="widget-description">Solicita una nueva cita</div>
-                        </div>
-                        <div class="widget-form">
-                            <form class="booking-form">
-                                <div class="form-group">
-                                    <div class="select-group">
-                                        <select th:name="${tipoServicio}">
-                                            <option value="domicilio">Domicilio</option>
-                                            <option value="reservar-mesa">Reservar mesa</option>
-                                            <option value="recoger-en-tienda">Recoger en tienda</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="number" th:name="${cantidadPersonas}" placeholder="Cantidad de personas" min="1" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" th:name="${fecha}" min="2023-11-09" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="time" th:name="${hora}" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" th:name="${nombres}" placeholder="Nombres" maxlength="40" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" th:name="${apellido}" placeholder="Apellido" maxlength="40" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" th:name="${correo}" placeholder="Correo electrónico" required>
-                                </div>
-                                <div class="btn-group">
-                                    <button type="submit" class="submit-btn">Reservar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="widget-col">
-                        <div class="summary-form">
-                            <div class="summary-title">Resumen:</div>
-                            <ul class="summary-list">
-                                <li>Tipo de servicio: <span th:text="${tipoServicio}">-</span></li>
-                                <li>Cantidad de personas: <span th:text="${cantidadPersonas}">-</span></li>
-                                <li>Fecha: <span th:text="${fecha}">yyyy-mm-dd</span></li>
-                                <li>Hora: <span th:text="${hora}">hh:mm am/pm</span></li>
-                                <li>Duración: 0 h 00 min</li>
-                                <li>Precio: 00.00 USD</li>
-								<form th:action="@{/logout}" method="post">
-       							 <input type="submit" value="Cerrar Sesión"/>
-							
- 							   </form>
-
-
-                            </ul>
-                        </div>
-                    </div>
+    <div class="wrapper">
+        <div class="display-menu">
+            <div class="back">
+                <img src="/Source/sorc1.png"  alt="Back">
+            </div>
+            <form th:action="@{/logout}" method="post">
+                <input class="botton-close" type="submit" value="Cerrar Sesión"/>
+            </form>
+            <div id="google_translate_element" class="google"></div>
+            <div class="botton1" th:if="${isAdmin}">
+                <a th:href="@{/menufull}">Ir al Menú</a>
+            </div>
+        </div>
+        <div class="inner">
+            <div class="product-picture">
+                <img th:src="@{/Source/reservare.jpeg}" class="source3" alt="img_reservar mesa">
+            </div>
+            <div class="product-title">
+                <p><strong>Reservar una mesa</strong></p>
+            </div>
+            <div class="product-text">
+                <p>Cantidad de personas que asistiran</p>
+            </div>
+            <div th:with="tableNumber=${1}" class="table-choice">
+                <div class="table minus">
+                    <button type="button" onclick="updateTableNumber('decrement')"><strong>-</strong></button>
                 </div>
+                <div class="table plus">
+                    <button type="button" onclick="updateTableNumber('increment')"><strong>+</strong></button>
+                </div>
+                <div class="table-number">
+                    <strong id="tableNumber" th:text="${tableNumber}"></strong>
+                </div>
+            </div>
+            <div class="date-title">
+                <p>Seleccione fecha &amp; hora</p>
+            </div>
+            <div class="date-picker">
+                <input type="date" placeholder="mm/dd/yyyy" style="text-align:center;">
+                <input type="time" placeholder="00:00"/>
+            </div>
+            <div class="submit-btn">
+                <button type="submit">Reservar</button>
             </div>
         </div>
     </div>
+    <script th:src="@{/js/javacc.js}"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
           new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
                 }
         </script>
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>      
+        
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
