@@ -9,23 +9,30 @@ body {
   margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  display: flex;
 }
 
 .sidebar-toggle {
   margin-left: -240px;
 }
 
+.container {
+    flex: 1;
+    display: flex
+}
+
 .sidebar {
-  width: 240px;
-  height: 100%;
-  background: rgb(255, 241, 240);
-  position: absolute;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  z-index: 100;
+    flex: 0 0 240px;
+    height: 100vh;
+    background: rgb(255, 241, 240);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
 }
 
 #leftside-navigation ul,
@@ -95,4 +102,112 @@ body {
   padding-top: 13px;
   padding-bottom: 13px;
   color: rgb(0, 0, 0);
+}
+
+.present{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.present2{
+    font-size: 15px;
+}
+
+.content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.menup, .menup2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.espacio {
+    text-align: center;
+    padding: 1px;
+    background-color: rgb(231, 156, 102, 109);
+}
+.texto {
+    display: flex;
+    padding: 10px;
+    background-color: rgb(221, 221, 255);
+    justify-content: center;
+    text-align: center;
+}
+
+
+.food-items{
+    margin: 70px 0;
+    padding: 20px 0;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.item{
+    width: 650px;
+    padding: 30px;
+    text-align: center;
+}
+.item div{
+    display: flex;
+    height: 160px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.item img{
+    width: 160px;
+    margin-bottom: 15px;
+}
+.item p{
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.white_btn{
+    cursor: pointer;
+    margin-top: 20px;
+    width: 160px;
+    font-weight: bold;
+    color: rgb(255, 119, 150);
+    line-height: 50px;
+    border: 1px solid rgb(255, 119, 150);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(255, 119, 150, 0.4);
+    transition: all 0.55;
+}
+.white_btn:hover{
+    color: white;
+    background-color: rgb(255, 119, 150);
+    box-shadow: 0 10px 15px rgba(255, 119, 150, 0.4);
+}
+.item .red_btn, .item .white_btn{
+    width: 120px;
+    line-height: 35px;
+}
+
+.main_slide2{
+    margin: 80px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.foodimg{
+    flex: 0.5;
+}
+.foodimg img{
+    max-width: 500px;
+    width: 45vw;
 }

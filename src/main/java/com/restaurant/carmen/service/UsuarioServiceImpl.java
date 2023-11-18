@@ -2,6 +2,7 @@ package com.restaurant.carmen.service;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +56,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
+
+	@Override
+	public List<Usuario> listarUsuarios() {
+		return usuarioRepository.findAll();
+	}
+    
+   
 }

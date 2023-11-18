@@ -48,7 +48,7 @@ public class SecurityConfiguration {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
                         		.requestMatchers(
-                        				HttpMethod.GET,"/menufull").hasRole("ADMIN")
+                        				HttpMethod.GET,"/menufull", "/users").hasRole("ADMIN")
                                 // Permite acceso a las rutas de documentos HTML sin autenticación
                                 .requestMatchers(
                                         HttpMethod.GET, "/", "/login**", "/registro**", "/home**", "/about**", "/menu**", "/reserv**", "/usuarios/**").permitAll()
