@@ -10,9 +10,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.restaurant.carmen.models.Usuario;
 import com.restaurant.carmen.service.UsuarioService;
 
 @Controller
@@ -90,17 +93,24 @@ public class RegistroControlador {
         
         
     }
-	@GetMapping("/editarUsuario/{id}")
-    public String editarUsuario(@PathVariable Long id, Model model) {
-        // Lógica para cargar los datos del usuario y pasarlos al formulario de edición
-        return "editarUsuario"; // Puedes crear una nueva página HTML para la edición
-    }
+	@GetMapping("/edit/{id}")
+	public String editarUsuario(@PathVariable Long id, Model model) {
+	    Usuario usuario = servicio.obtenerUsuarioPorId(id);
+	    model.addAttribute("usuario", usuario);
+	    return "edit";
+	}
 
-    @PostMapping("/eliminarUsuario/{id}")
-    public String eliminarUsuario(@PathVariable Long id) {
-        // Lógica para eliminar el usuario con el ID proporcionado
-        // Puedes utilizar el servicio de UsuarioService y el repositorio UsuarioRepository aquí
-        return "redirect:/menufull"; // Redirige de nuevo a la página del menú después de eliminar
-    }
+	@PostMapping("/actualizarUsuario")
+	public String actualizarUsuario(@ModelAttribute Usuario usuario) {
+	    servicio.actualizarUsuario(usuario);
+	    return "redirect:/menufull";
+	}
+
+	@PostMapping("/eliminarUsuario/{id}")
+	public String eliminarUsuario(@RequestParam Long id) {
+	    servicio.eliminarUsuario(id);
+	    return "redirect:/menufull?exito=true";
+	}
+
 
 }

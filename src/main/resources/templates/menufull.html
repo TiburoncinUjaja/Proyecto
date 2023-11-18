@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rest. Carmen | Menu</title>
+    <title>Rest. Carmen | Menufull</title>
 </head>
 
 <body>
@@ -53,8 +53,8 @@
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Correo</th>
-                                        <th>Update</th>
-                                        <th>Delete</th>
+                                        <th>Actualizar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,6 +62,17 @@
                                         <td th:text="${usuario.id}">ID</td>
                                         <td th:text="${usuario.nombre}">Nombre</td>
                                         <td th:text="${usuario.email}">Correo</td>
+										<td> 
+                                            <form th:if="${usuario != null}" th:action="@{'/edit/' + ${usuario.id}}" method="get">
+                                                <button type="submit">Editar</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form th:if="${usuario != null}" th:action="@{'/eliminarUsuario/' + ${usuario.id}}" method="post">
+                                                <input type="hidden" name="id" th:value="${usuario.id}" />
+                                                <button type="submit">Eliminar</button>
+                                            </form>                                            
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -91,16 +102,6 @@
                                         <td th:text="${usuario.id}">ID</td>
                                         <td th:text="${usuario.nombre}">Nombre</td>
                                         <td th:text="${usuario.email}">Correo</td>
-                                        <td> 
-                                            <form th:if="${usuario != null}" th:action="@{'/editarUsuario/' + ${usuario.id}}" method="get">
-                                                <button type="submit">Editar</button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form th:if="${usuario != null}" th:action="@{'/eliminarUsuario/' + ${usuario.id}}" method="post">
-                                                <button type="submit">Eliminar</button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

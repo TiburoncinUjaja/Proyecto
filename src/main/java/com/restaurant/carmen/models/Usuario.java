@@ -1,6 +1,8 @@
 package com.restaurant.carmen.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -19,7 +22,17 @@ import jakarta.persistence.UniqueConstraint;
 @Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = { "email" }))
 public class Usuario {
 	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Reserva> reservas = new ArrayList<>();
 	
+	
+	
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/style7.css}">
+    <link rel="icon" th:href="@{/Source/icono.ico}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest. Carmen | Editar Usuario</title>
+</head>
+
+<body>
+    <div class="menup">
+        <div class="food-items">
+            <div class="item">
+                <h3>Bienvenido al sistema de edición de usuarios señor administrador.</h3>
+                <p>Aqui podrás editar los datos del usuario registrado.</p>
+                <h2>Editar Usuario</h2>
+                <form th:action="@{/actualizarUsuario}" method="post" th:object="${usuario}">
+                    <input type="hidden" th:field="*{id}" />
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required />
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" th:field="*{email}" required />
+                    <button type="submit">Actualizar</button>
+                </form>
+                <a th:href="@{/menufull}">Volver a la lista de usuarios</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
