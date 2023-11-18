@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+
 body,
 .message,
 .form,
@@ -27,17 +28,98 @@ body {
   grid-template: 100%/50% 50%;
   box-shadow: 2px 2px 10px 0 rgba(51, 51, 51, 0.2);
   align-content: center;
+
+  #google_translate_element {
+    display: inline-block;
+    margin: 0px 10px;
+  }
+
+  .goog-te-combo {
+    margin: 0 !important;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+
+  }
+
+
+  .goog-te-menu-value {
+    padding: 5px;
+    background-color: black;
+    color: rgba(255, 255, 255, 0);
+  }
+
+  .goog-te-gadget-simple {
+    background-color: transparent !important;
+    border-left: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    font-size: 10pt !important;
+    display: inline-block !important;
+    padding-top: 1px !important;
+    padding-bottom: 2px !important;
+    cursor: pointer !important;
+    color: rgba(255, 255, 255, 0) !important;
+  }
+
+  .goog-te-gadget-simple .VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    text-decoration: none !important;
+    color: rgb(0, 0, 0) !important;
+  }
+
+  .goog-te-gadget-icon {
+    background-image: url('https://th.bing.com/th/id/OIG.CB_hb2qtsnluYjqetqPd?pid=ImgGn') !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    width: 19px !important;
+    height: 19px !important;
+    margin-left: 5px;
+
+  }
+
+  .VIpgJd-ZVi9od-vH1Gmf {
+    background-color: rgba(0, 0, 0, .1) !important;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, .1) !important;
+    overflow: hidden;
+    padding: 4px;
+  }
+
+  .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+  }
+
+  .VIpgJd-ZVi9od-ORHb {
+    display: none;
+    padding: 0;
+  }
+
+  .VIpgJd-ZVi9od-vH1Gmf-ibnC6b div,
+  .VIpgJd-ZVi9od-vH1Gmf-ibnC6b:link div,
+  .VIpgJd-ZVi9od-vH1Gmf-ibnC6b:visited div,
+  .VIpgJd-ZVi9od-vH1Gmf-ibnC6b:active div {
+    color: rgb(0, 0, 0) !important;
+    background: #ffffff00;
+  }
+
 }
-.google{
+
+.google {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   z-index: 4;
   right: 0%;
 }
-.container .source1{
-    width: 60px;
+
+.container .source1 {
+  width: 60px;
 }
+
 .message {
   position: absolute;
   background: rgb(255, 244, 242);
@@ -47,6 +129,7 @@ body {
   transform: translateX(100%);
   z-index: 4;
 }
+
 .message:before {
   position: absolute;
   content: "";
@@ -57,6 +140,7 @@ body {
   left: 0;
   top: 15%;
 }
+
 .message .button {
   margin: 5px 0;
 }
@@ -80,12 +164,14 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .form--heading {
   font-size: 25px;
   height: 50px;
   color: rgb(242, 101, 34);
   font-family: "Source Sans Pro", sans-serif;
 }
+
 .form--signup {
   border-right: 1px solid #999;
 }
@@ -93,9 +179,11 @@ body {
 form {
   width: 70%;
 }
-form > * {
+
+form>* {
   margin: 10px;
 }
+
 form input {
   width: 90%;
   border: 0;
@@ -105,10 +193,12 @@ form input {
   color: #797a9e;
   letter-spacing: 0.11em;
 }
+
 form input::placeholder {
   color: #333;
   font-size: 10px;
 }
+
 form input:focus {
   outline: 0;
   border-bottom: 1px solid rgba(128, 155, 206, 0.7);
@@ -116,7 +206,7 @@ form input:focus {
 }
 
 .button {
-    border-radius: 7px;
+  border-radius: 7px;
   width: 100%;
   height: 30px;
   border: 0;

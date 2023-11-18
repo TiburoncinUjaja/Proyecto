@@ -19,5 +19,11 @@ public interface UsuarioService extends UserDetailsService{
     Usuario obtenerUsuarioPorId(Long id);
 
     void actualizarUsuario(Usuario usuario);
+    
+    Usuario obtenerUsuarioPorEmail(String email);
+    
+    void eliminarReserva(Long id);
+
+
 
 }

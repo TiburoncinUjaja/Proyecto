@@ -90,18 +90,25 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Actualizar</th>
-                                        <th>Eliminar</th>
+                                        <th>Hora</th>
+                                        <th>Fecha</th>
+                                        <th>Cantidad de personas</th>
+                                        <th>Eliminar </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="usuario : ${usuarios}">
-                                        <td th:text="${usuario.id}">ID</td>
-                                        <td th:text="${usuario.nombre}">Nombre</td>
-                                        <td th:text="${usuario.email}">Correo</td>
+                                    <tr th:each="reserva : ${reservas}">
+                                        <td th:text="${reserva.usuario.nombre}">Nombre</td>
+                                        <td th:text="${reserva.hora}">Hora</td>
+                                        <td th:text="${reserva.fecha}">Fecha</td>
+                                        <td th:text="${reserva.cantidadPersonas}">Cantidad de personas</td>
+                                        <td>
+                                            <form th:if="${reserva != null}" th:action="@{'/eliminarReserva/' + ${reserva.id}}" method="post">
+                                                <input type="hidden" name="id" th:value="${reserva.id}" />
+                                                <button type="submit">Eliminar</button>
+                                            </form>                                            
+                                        </td>                                                                               
                                     </tr>
                                 </tbody>
                             </table>
@@ -112,7 +119,7 @@
         </div>
         <script type="text/javascript">
             function googleTranslateElementInit() {
-                new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
+                new google.translate.TranslateElement({ pageLanguage: 'es', includedLanguages: 'ca,eu,gl,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true }, 'google_translate_element');
             }
         </script>
         <script type="text/javascript"

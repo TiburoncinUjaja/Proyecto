@@ -27,6 +27,21 @@ public class Usuario {
 	
 	
 	
+	public Usuario(List<Reserva> reservas) {
+		super();
+		this.reservas = reservas;
+	}
+	public Usuario(List<Reserva> reservas, String nombre) {
+		super();
+		this.reservas = reservas;
+		this.nombre = nombre;
+	}
+	public Usuario(List<Reserva> reservas, Long id, String nombre) {
+		super();
+		this.reservas = reservas;
+		this.id = id;
+		this.nombre = nombre;
+	}
 	public List<Reserva> getReservas() {
 		return reservas;
 	}

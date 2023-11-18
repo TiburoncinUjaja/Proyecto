@@ -1,34 +1,27 @@
 $(document).ready(function(){
-  var number = 2;
+  var number = 1;
   $(".table-number>strong").html(number);
-});
 
-$(".table.plus").click(function(){
-  number = $(".table-number>strong").text();
-  number = parseInt(number) + 1;
-  $(".table-number>strong").html(number);
-})
+  $(".table.plus button").click(function(){
+      number++;
+      updateTableNumber('increment');
+      updateTableNumberInput();
+  });
 
-$(".table.minus").click(function(){
-  number = $(".table-number>strong").text();
-  number = parseInt(number) - 1;
-  /* if(number == 2){
-      $(".table.minus").css("button:disabled");
-  } */
-  if(number > 1){
+  $(".table.minus button").click(function(){
+      if(number > 1){
+          number--;
+          updateTableNumber('decrement');
+          updateTableNumberInput();
+      }
+  });
+
+  function updateTableNumber(operation) {
       $(".table-number>strong").html(number);
   }
-})
 
-function updateTableNumber(operation) {
-  var tableNumberElement = document.getElementById('tableNumber');
-  var currentNumber = parseInt(tableNumberElement.innerText);
-
-  if (operation === 'increment') {
-      currentNumber++;
-  } else if (operation === 'decrement' && currentNumber > 1) {
-      currentNumber--;
+  function updateTableNumberInput() {
+      // Actualiza el valor del input oculto antes de enviar el formulario
+      $("#tableNumberInput").val(number);
   }
-
-  tableNumberElement.innerText = currentNumber;
-}
+});

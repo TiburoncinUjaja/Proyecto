@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/css/style6.css}">
     <link rel="icon" th:href="@{/Source/icono.ico}">
     <meta charset="UTF-8">
@@ -30,36 +32,41 @@
             <div class="product-title">
                 <p><strong>Reservar una mesa</strong></p>
             </div>
+            <div class="exito" th:if="${param.exito}">
+                <p>Perfecto!, Se ha realizado una correcta reservación</p>
+            </div>
             <div class="product-text">
                 <p>Cantidad de personas que asistiran</p>
             </div>
-            <div th:with="tableNumber=${1}" class="table-choice">
+            <div class="table-choice">
                 <div class="table minus">
-                    <button type="button" onclick="updateTableNumber('decrement')"><strong>-</strong></button>
+                    <button type="button"><strong>-</strong></button>
                 </div>
                 <div class="table plus">
-                    <button type="button" onclick="updateTableNumber('increment')"><strong>+</strong></button>
+                    <button type="button"><strong>+</strong></button>
                 </div>
                 <div class="table-number">
-                    <strong id="tableNumber" th:text="${tableNumber}"></strong>
+                    <strong id="tableNumber" name="tableNumber" th:text="${tableNumber}">1</strong>
                 </div>
             </div>
             <div class="date-title">
                 <p>Seleccione fecha &amp; hora</p>
             </div>
             <div class="date-picker">
-                <input type="date" placeholder="mm/dd/yyyy" style="text-align:center;">
-                <input type="time" placeholder="00:00"/>
-            </div>
-            <div class="submit-btn">
-                <button type="submit">Reservar</button>
+                <form th:action="@{/formreserv}" method="post" th:object="${reserva}">
+                    <input class="imp" type="hidden" id="tableNumberInput" name="cantidadPersonas" th:value="${tableNumber}" />
+                    <!-- Otros campos aquí -->
+                    <input class="imp" type="date" placeholder="mm/dd/yyyy" name="fecha" style="text-align:center;">
+                    <input class="imp" type="time" placeholder="00:00" name="hora">
+                    <button class="reserv" type="submit">Reservar</button>
+                </form>
             </div>
         </div>
     </div>
     <script th:src="@{/js/javacc.js}"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,en,fr,it,pt,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
+          new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'ca,eu,gl,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true}, 'google_translate_element' );
                 }
         </script>
         

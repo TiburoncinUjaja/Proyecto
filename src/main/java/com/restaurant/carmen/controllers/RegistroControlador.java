@@ -2,6 +2,7 @@ package com.restaurant.carmen.controllers;
 
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -15,15 +16,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.restaurant.carmen.models.Reserva;
 import com.restaurant.carmen.models.Usuario;
+import com.restaurant.carmen.repository.ReservaRepository;
 import com.restaurant.carmen.service.UsuarioService;
 
 @Controller
 public class RegistroControlador {
 	
 	@Autowired
-	private UsuarioService servicio;
+    private ReservaRepository reservaRepository;
 	
+	@Autowired
+	private UsuarioService servicio;
+
 	@GetMapping("login")
 	public String iniciarSesion() {
 		return "login";
@@ -88,6 +94,9 @@ public class RegistroControlador {
         
         model.addAttribute("usuarios", servicio.listarUsuarios());
         
+        List<Reserva> reservas = reservaRepository.findAll(); // Obtener todas las reservas
+        model.addAttribute("reservas", reservas); // Agregar las reservas al modelo
+        
         return "menufull";
         
         
@@ -111,6 +120,10 @@ public class RegistroControlador {
 	    servicio.eliminarUsuario(id);
 	    return "redirect:/menufull?exito=true";
 	}
-
-
+	
+	@PostMapping("/eliminarReserva/{id}")
+	public String eliminarReserva(@PathVariable Long id) {
+	    servicio.eliminarReserva(id);
+	    return "redirect:/menufull?exito=true";
+	}
 }

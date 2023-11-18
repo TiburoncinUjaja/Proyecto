@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.restaurant.carmen.dto.UsuarioRegistroDTO;
 import com.restaurant.carmen.models.Rol;
 import com.restaurant.carmen.models.Usuario;
+import com.restaurant.carmen.repository.ReservaRepository;
 import com.restaurant.carmen.repository.UsuarioRepository;
 
 @Service
@@ -25,6 +26,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     private BCryptPasswordEncoder passwordEncoder;
     
     private UsuarioRepository usuarioRepository;
+    
+    @Autowired
+    private ReservaRepository reservaRepository;
 
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
@@ -77,6 +81,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public void actualizarUsuario(Usuario usuario) {
 		usuarioRepository.save(usuario);
 	}
+
+	@Override
+	public Usuario obtenerUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+	}
+
+	@Override
+	public void eliminarReserva(Long id) {
+		reservaRepository.deleteById(id);		
+	}
     
+	
    
 }
