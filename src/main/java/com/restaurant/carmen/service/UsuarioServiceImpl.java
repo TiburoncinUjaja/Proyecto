@@ -29,17 +29,22 @@ public class UsuarioServiceImpl implements UsuarioService {
     
     @Autowired
     private ReservaRepository reservaRepository;
+    
+    //Constructor
 
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
+    
+    //Constructor
     
     @Autowired
     public UsuarioServiceImpl(BCryptPasswordEncoder passwordEncoder, UsuarioRepository usuarioRepository) {
         this.passwordEncoder = passwordEncoder;
         this.usuarioRepository = usuarioRepository;
     }
-
+    
+    //Crear rol usuario y guardarlo
     @Override
     public Usuario save(UsuarioRegistroDTO registroDTO) {
         Usuario usuario = new Usuario(registroDTO.getNombre(),
@@ -47,6 +52,8 @@ public class UsuarioServiceImpl implements UsuarioService {
                 passwordEncoder.encode(registroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
         return usuarioRepository.save(usuario);
     }
+    
+    //Buscar usuario por email
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -56,36 +63,50 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
     }
+    
+    //Mapear roles
 
     private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
+    
+    //Obtener usuarios
 
 	@Override
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
 	}
+	
+	//Eliminar usuarios de la base de datos
 
 	@Override
 	public void eliminarUsuario(Long id) {
 		usuarioRepository.deleteById(id);
 		
 	}
+	
+	//Encontrar usuario por Id
 
 	@Override
 	public Usuario obtenerUsuarioPorId(Long id) {
 		return usuarioRepository.findById(id).orElse(null);
 	}
+	
+	//Actualizar usuario
 
 	@Override
 	public void actualizarUsuario(Usuario usuario) {
 		usuarioRepository.save(usuario);
 	}
+	
+	//Obtener usuario por email
 
 	@Override
 	public Usuario obtenerUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
 	}
+	
+	//Eliminar una reserva
 
 	@Override
 	public void eliminarReserva(Long id) {

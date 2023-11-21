@@ -29,6 +29,8 @@ public class RegistroControlador {
 	
 	@Autowired
 	private UsuarioService servicio;
+	
+	//Redireccionamiento a todas las paginas
 
 	@GetMapping("login")
 	public String iniciarSesion() {
@@ -60,6 +62,9 @@ public class RegistroControlador {
 		return "reserv";
 	}
 	
+	//Redireccionamiento al formulario de reservas, donde se solicita El nombre del usuario, su correo 
+	// su email y su rol
+	
 	@GetMapping("formreserv")
 	 public String tuMetodo(Model model, Principal principal) {
         String username = principal.getName();
@@ -76,6 +81,9 @@ public class RegistroControlador {
 
         return "formreserv";
     }
+	
+	//Redireccionamiento al formulario del menufull del administrador, donde se solicita la tabla de usuarios.
+	// de reservas, rol de administrador y los servicios de enlistar junto con los crud
 	
 	@GetMapping("/menufull")
     @Secured("ROLE_ADMIN")
@@ -94,32 +102,41 @@ public class RegistroControlador {
         
         model.addAttribute("usuarios", servicio.listarUsuarios());
         
-        List<Reserva> reservas = reservaRepository.findAll(); // Obtener todas las reservas
-        model.addAttribute("reservas", reservas); // Agregar las reservas al modelo
+        List<Reserva> reservas = reservaRepository.findAll(); 
+        model.addAttribute("reservas", reservas);
         
         return "menufull";
         
         
         
     }
+	
+	//Mapeo de editar por Id
+	
 	@GetMapping("/edit/{id}")
 	public String editarUsuario(@PathVariable Long id, Model model) {
 	    Usuario usuario = servicio.obtenerUsuarioPorId(id);
 	    model.addAttribute("usuario", usuario);
 	    return "edit";
 	}
+	
+	//Mapeo de actualizar usuarios
 
 	@PostMapping("/actualizarUsuario")
 	public String actualizarUsuario(@ModelAttribute Usuario usuario) {
 	    servicio.actualizarUsuario(usuario);
 	    return "redirect:/menufull";
 	}
+	
+	//Mapeo para eliminar usuario por Id
 
 	@PostMapping("/eliminarUsuario/{id}")
 	public String eliminarUsuario(@RequestParam Long id) {
 	    servicio.eliminarUsuario(id);
 	    return "redirect:/menufull?exito=true";
 	}
+	
+	//Mapeo de eliminar reserva por Id
 	
 	@PostMapping("/eliminarReserva/{id}")
 	public String eliminarReserva(@PathVariable Long id) {

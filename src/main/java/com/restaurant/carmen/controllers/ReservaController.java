@@ -41,7 +41,7 @@ public class ReservaController {
         // Guardar la reserva en la base de datos
         reservaRepository.save(reserva);
 
-        return "redirect:/formreserv?exito=true"; // o a donde desees redirigir después de hacer la reserva
+        return "redirect:/formreserv?exito=true"; // redirigir después de hacer la reserva
     }
 }
 

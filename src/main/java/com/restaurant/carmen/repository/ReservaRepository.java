@@ -10,6 +10,8 @@ import com.restaurant.carmen.models.Reserva;
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 	
+	//Crear lista Reseva
+	
 	List<Reserva> findAll();
 	
 

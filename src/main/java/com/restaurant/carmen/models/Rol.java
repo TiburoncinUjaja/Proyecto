@@ -7,10 +7,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
+//Crear tabla llamada rol.
 @Entity
 @Table(name = "rol")
 public class Rol {
 	
+	//Datos que tendra la tabla
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -18,6 +20,8 @@ public class Rol {
 	public Long getId() {
 		return id;
 	}
+	
+	//Getters and Setters and Constructors
 	public void setId(Long id) {
 		this.id = id;
 	}

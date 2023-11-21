@@ -1,16 +1,22 @@
 package com.restaurant.carmen.dto;
 
 public class UsuarioRegistroDTO {
+	
+	//Datos a pedir al usuarios
 
 	private Long id;
 
 	private String nombre;
 	private String email;
 	private String password;
+	
+	//Dato que sera ID
 
 	public Long getId() {
 		return id;
 	}
+	
+	//Getters and Setters and Constructors
 
 	public void setId(Long id) {
 		this.id = id;

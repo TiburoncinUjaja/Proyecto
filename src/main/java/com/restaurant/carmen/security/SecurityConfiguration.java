@@ -20,15 +20,21 @@ import com.restaurant.carmen.service.UsuarioService;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+	
+	//Buscar de manera "floja" usuarioService 
 
     @Autowired
     @Lazy
     private UsuarioService usuarioService;
+    
+    //Codificar contraseña
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
+    //Authentication
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -41,6 +47,8 @@ public class SecurityConfiguration {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
+    
+    //Filtros, pagina de login, pagina logout
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

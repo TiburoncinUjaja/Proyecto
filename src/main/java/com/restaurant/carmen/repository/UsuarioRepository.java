@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.restaurant.carmen.models.Usuario;
 
+//Buscar usuario para enviar email
+
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 	
