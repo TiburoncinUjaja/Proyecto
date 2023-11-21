@@ -21,6 +21,10 @@ import com.restaurant.carmen.models.Usuario;
 import com.restaurant.carmen.repository.ReservaRepository;
 import com.restaurant.carmen.service.UsuarioService;
 
+/**
+ * Controlador para gestionar las operaciones relacionadas con la navegación y manipulación de datos en la aplicación Carmen.
+ */
+
 @Controller
 public class RegistroControlador {
 	
@@ -30,40 +34,79 @@ public class RegistroControlador {
 	@Autowired
 	private UsuarioService servicio;
 	
-	//Redireccionamiento a todas las paginas
+	/**
+     * Redirecciona a la página de inicio de sesión.
+     *
+     * @return La vista de inicio de sesión.
+     */
 
 	@GetMapping("login")
 	public String iniciarSesion() {
 		return "login";
 	}
 	
+	/**
+     * Redirecciona a la página de inicio.
+     *
+     * @return La vista de inicio.
+     */
+	
 	@GetMapping("/")
 	public String verInicio() {
 		return "home";
 	}
 	
+	/**
+     * Redirecciona a la página de inicio alternativa.
+     *
+     * @return La vista de inicio.
+     */
+	
 	@GetMapping("/home")
 	public String verInicio2() {
 		return "home";
 	}
+	
+	/**
+     * Redirecciona a la página "Acerca de nosotros".
+     *
+     * @return La vista "Acerca de nosotros".
+     */
 
 	@GetMapping("/about")
 	public String about() {
 		return "about";
 	}
 	
+	/**
+     * Redirecciona a la página del menú.
+     *
+     * @return La vista del menú.
+     */
+	
 	@GetMapping("/menu")
 	public String menu() {
 		return "menu";
 	}
+	
+	/**
+     * Redirecciona a la página de reservas.
+     *
+     * @return La vista de reservas.
+     */
 	
 	@GetMapping("/reserv")
 	public String reserv() {
 		return "reserv";
 	}
 	
-	//Redireccionamiento al formulario de reservas, donde se solicita El nombre del usuario, su correo 
-	// su email y su rol
+	/**
+     * Redirecciona al formulario de reservas, mostrando información del usuario autenticado.
+     *
+     * @param model      El modelo utilizado para enviar datos a la vista.
+     * @param principal  El objeto Principal que representa al usuario autenticado.
+     * @return La vista del formulario de reservas.
+     */
 	
 	@GetMapping("formreserv")
 	 public String tuMetodo(Model model, Principal principal) {
@@ -82,8 +125,13 @@ public class RegistroControlador {
         return "formreserv";
     }
 	
-	//Redireccionamiento al formulario del menufull del administrador, donde se solicita la tabla de usuarios.
-	// de reservas, rol de administrador y los servicios de enlistar junto con los crud
+	/**
+     * Redirecciona al menú completo del administrador, mostrando información de usuarios y reservas.
+     *
+     * @param model      El modelo utilizado para enviar datos a la vista.
+     * @param principal  El objeto Principal que representa al usuario autenticado.
+     * @return La vista del menú completo del administrador.
+     */
 	
 	@GetMapping("/menufull")
     @Secured("ROLE_ADMIN")
@@ -107,11 +155,15 @@ public class RegistroControlador {
         
         return "menufull";
         
-        
-        
     }
 	
-	//Mapeo de editar por Id
+	/**
+     * Mapea la operación de editar usuario por ID.
+     *
+     * @param id     El ID del usuario a editar.
+     * @param model  El modelo utilizado para enviar datos a la vista.
+     * @return La vista de edición de usuario.
+     */
 	
 	@GetMapping("/edit/{id}")
 	public String editarUsuario(@PathVariable Long id, Model model) {
@@ -120,7 +172,12 @@ public class RegistroControlador {
 	    return "edit";
 	}
 	
-	//Mapeo de actualizar usuarios
+	/**
+     * Mapea la operación de actualizar usuario.
+     *
+     * @param usuario El objeto Usuario a actualizar.
+     * @return La redirección a la vista del menú completo.
+     */
 
 	@PostMapping("/actualizarUsuario")
 	public String actualizarUsuario(@ModelAttribute Usuario usuario) {
@@ -128,7 +185,12 @@ public class RegistroControlador {
 	    return "redirect:/menufull";
 	}
 	
-	//Mapeo para eliminar usuario por Id
+	/**
+     * Mapea la operación de eliminar usuario por ID.
+     *
+     * @param id El ID del usuario a eliminar.
+     * @return La redirección a la vista del menú completo con un indicador de éxito.
+     */
 
 	@PostMapping("/eliminarUsuario/{id}")
 	public String eliminarUsuario(@RequestParam Long id) {
@@ -136,7 +198,12 @@ public class RegistroControlador {
 	    return "redirect:/menufull?exito=true";
 	}
 	
-	//Mapeo de eliminar reserva por Id
+	 /**
+     * Mapea la operación de eliminar reserva por ID.
+     *
+     * @param id El ID de la reserva a eliminar.
+     * @return La redirección a la vista del menú completo con un indicador de éxito.
+     */
 	
 	@PostMapping("/eliminarReserva/{id}")
 	public String eliminarReserva(@PathVariable Long id) {

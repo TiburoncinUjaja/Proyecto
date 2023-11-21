@@ -8,33 +8,68 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import com.restaurant.carmen.dto.UsuarioRegistroDTO;
 import com.restaurant.carmen.models.Usuario;
 
+/**
+ * Interfaz de servicio para operaciones relacionadas con la entidad Usuario.
+ */
+
 public interface UsuarioService extends UserDetailsService{
 	
-	//Llamar a guardar para guardar en usuario
+	 /**
+     * Guarda un nuevo usuario a partir de la información proporcionada en el DTO de registro.
+     *
+     * @param registroDTO El DTO que contiene la información del nuevo usuario.
+     * @return El usuario guardado.
+     */
 
     public Usuario save(UsuarioRegistroDTO registroDTO);
     
-    //Enlistar usuarios
+     /**
+     * Obtiene una lista de todos los usuarios.
+     *
+     * @return La lista de todos los usuarios.
+     */
     
     public List<Usuario> listarUsuarios(); 
     
-    //Eliminar usuarios
+    /**
+     * Elimina un usuario por su ID.
+     *
+     * @param id El ID del usuario a eliminar.
+     */
     
     void eliminarUsuario(Long id);
     
-    //Buscar usuario por Id
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param id El ID del usuario a obtener.
+     * @return El usuario encontrado o null si no se encuentra.
+     */
     
     Usuario obtenerUsuarioPorId(Long id);
     
-    //Editar usuarios
+    /**
+     * Actualiza la información de un usuario.
+     *
+     * @param usuario El usuario con la información actualizada.
+     */
 
     void actualizarUsuario(Usuario usuario);
     
-    //obtener usuario por email
+    /**
+     * Obtiene un usuario por su dirección de correo electrónico.
+     *
+     * @param email La dirección de correo electrónico del usuario a buscar.
+     * @return El usuario encontrado o null si no se encuentra.
+     */
     
     Usuario obtenerUsuarioPorEmail(String email);
     
-    //Eliminar dato en reserva
+    /**
+     * Elimina una reserva por su ID.
+     *
+     * @param id El ID de la reserva a eliminar.
+     */
     
     void eliminarReserva(Long id);
 

@@ -5,10 +5,19 @@ import org.springframework.stereotype.Repository;
 
 import com.restaurant.carmen.models.Usuario;
 
-//Buscar usuario para enviar email
+/**
+* Repositorio de datos para la entidad Usuario.
+*/
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+	
+	/**
+     * Busca un usuario por su dirección de correo electrónico.
+     *
+     * @param email La dirección de correo electrónico del usuario a buscar.
+     * @return El usuario encontrado o null si no se encuentra.
+     */
 	
 	public Usuario findByEmail(String email);
 	

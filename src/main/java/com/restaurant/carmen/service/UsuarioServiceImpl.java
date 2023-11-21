@@ -20,6 +20,10 @@ import com.restaurant.carmen.models.Usuario;
 import com.restaurant.carmen.repository.ReservaRepository;
 import com.restaurant.carmen.repository.UsuarioRepository;
 
+/**
+ * Implementación de la interfaz UsuarioService que proporciona operaciones relacionadas con la entidad Usuario.
+ */
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     
@@ -44,7 +48,8 @@ public class UsuarioServiceImpl implements UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
     
-    //Crear rol usuario y guardarlo
+    // Crear rol "usuario" y guardarlo
+
     @Override
     public Usuario save(UsuarioRegistroDTO registroDTO) {
         Usuario usuario = new Usuario(registroDTO.getNombre(),
@@ -64,20 +69,20 @@ public class UsuarioServiceImpl implements UsuarioService {
         return new User(usuario.getEmail(), usuario.getPassword(), mapearAutoridadesRoles(usuario.getRoles()));
     }
     
-    //Mapear roles
+    // Mapear roles a autoridades de seguridad
 
     private Collection<? extends GrantedAuthority> mapearAutoridadesRoles(Collection<Rol> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getNombre())).collect(Collectors.toList());
     }
     
-    //Obtener usuarios
+    // Obtener todos los usuarios
 
 	@Override
 	public List<Usuario> listarUsuarios() {
 		return usuarioRepository.findAll();
 	}
 	
-	//Eliminar usuarios de la base de datos
+    // Eliminar usuario por ID
 
 	@Override
 	public void eliminarUsuario(Long id) {
@@ -85,28 +90,28 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 	}
 	
-	//Encontrar usuario por Id
+    // Obtener usuario por ID
 
 	@Override
 	public Usuario obtenerUsuarioPorId(Long id) {
 		return usuarioRepository.findById(id).orElse(null);
 	}
 	
-	//Actualizar usuario
+    // Actualizar información de usuario
 
 	@Override
 	public void actualizarUsuario(Usuario usuario) {
 		usuarioRepository.save(usuario);
 	}
 	
-	//Obtener usuario por email
+    // Obtener usuario por email
 
 	@Override
 	public Usuario obtenerUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
 	}
 	
-	//Eliminar una reserva
+    // Eliminar reserva por ID
 
 	@Override
 	public void eliminarReserva(Long id) {

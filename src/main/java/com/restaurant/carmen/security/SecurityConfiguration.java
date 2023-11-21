@@ -17,24 +17,28 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.restaurant.carmen.service.UsuarioService;
 
+/**
+ * Configuración de seguridad para la aplicación Carmen.
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 	
-	//Buscar de manera "floja" usuarioService 
-
+    // Inyección "floja" de usuarioService
+	
     @Autowired
     @Lazy
     private UsuarioService usuarioService;
     
-    //Codificar contraseña
+    // Codificador de contraseñas
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
     
-    //Authentication
+    // Proveedor de autenticación basado en el servicio de usuario
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -43,12 +47,14 @@ public class SecurityConfiguration {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
+    
+    // Configuración de autenticación
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
     
-    //Filtros, pagina de login, pagina logout
+    // Configuración de filtros, página de login y página de logout
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

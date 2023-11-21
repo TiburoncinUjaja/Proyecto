@@ -1,5 +1,9 @@
 package com.restaurant.carmen.dto;
 
+/**
+ * DTO (Data Transfer Object) para la información de registro de usuario.
+ */
+
 public class UsuarioRegistroDTO {
 	
 	//Datos a pedir al usuarios
@@ -10,13 +14,14 @@ public class UsuarioRegistroDTO {
 	private String email;
 	private String password;
 	
-	//Dato que sera ID
+    // Getter y Setter para el campo ID
+
 
 	public Long getId() {
 		return id;
 	}
 	
-	//Getters and Setters and Constructors
+    // Getters y Setters para los demás campos
 
 	public void setId(Long id) {
 		this.id = id;
@@ -45,6 +50,9 @@ public class UsuarioRegistroDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+    // Constructores
+
 
 	public UsuarioRegistroDTO(Long id, String nombre, String email, String password) {
 		super();

@@ -12,12 +12,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
-//Crear tabla llamada "reserva"
+/**
+ * Clase que representa la entidad "Reserva" en la base de datos.
+ */
+
 @Entity
 @Table(name = "reserva")
 public class Reserva {
 	
-	// Datos que tendra la tabla reserva
+	// Datos que contiene la tabla "reserva"
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +36,7 @@ public class Reserva {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     
-    //Getters and Setters and Constructors
+ // Getters y Setters para los campos
 
 	public Long getId() {
 		return id;
@@ -74,6 +77,8 @@ public class Reserva {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	// Constructores
 
 	public Reserva(Long id, LocalDate fecha, LocalTime hora, int cantidadPersonas, Usuario usuario) {
 		super();

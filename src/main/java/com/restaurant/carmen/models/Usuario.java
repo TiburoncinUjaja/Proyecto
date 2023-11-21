@@ -18,7 +18,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
-//Crear tabla llamada usuario
+/**
+ * Clase que representa la entidad "Usuario" en la base de datos.
+ */
+
 @Entity
 @Table(name = "usuarios", uniqueConstraints = @UniqueConstraint(columnNames = { "email" }))
 public class Usuario {
@@ -26,7 +29,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Reserva> reservas = new ArrayList<>();
 	
-	//Relacion con la lista llamada Reserva
+    // Relación con la lista llamada Reserva
 	
 	public Usuario(List<Reserva> reservas) {
 		super();
@@ -50,7 +53,8 @@ public class Usuario {
 		this.reservas = reservas;
 	}
 	
-	//Sleccion de ID y Datos a solicitar al usuario
+    // Selección de ID y Datos a solicitar al usuario
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -69,14 +73,14 @@ public class Usuario {
 			inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
 			)
 	
-	//Relacion entre id rol
+    // Relación entre ID de usuario y roles
 	
 	private Collection<Rol> roles;
 	public Long getId() {
 		return id;
 	}
 	
-	//Getters and Setters and Constructors
+    // Getters y Setters para los campos
 	
 	
 	public void setId(Long id) {
@@ -106,6 +110,9 @@ public class Usuario {
 	public void setRoles(Collection<Rol> roles) {
 		this.roles = roles;
 	}
+	
+    // Constructores
+
 	public Usuario(Long id, String nombre, String email, String password, Collection<Rol> roles) {
 		super();
 		this.id = id;

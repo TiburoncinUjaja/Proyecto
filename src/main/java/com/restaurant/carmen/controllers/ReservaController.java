@@ -14,6 +14,10 @@ import com.restaurant.carmen.models.Usuario;
 import com.restaurant.carmen.repository.ReservaRepository;
 import com.restaurant.carmen.service.UsuarioService;
 
+/**
+ * Controlador para gestionar las operaciones relacionadas con la realización de reservas en la aplicación Carmen.
+ */
+
 @Controller
 public class ReservaController {
 	
@@ -22,6 +26,16 @@ public class ReservaController {
 	
 	@Autowired
     private ReservaRepository reservaRepository;
+	
+	/**
+     * Realiza una reserva con la información proporcionada y el usuario autenticado.
+     *
+     * @param fecha           La fecha de la reserva.
+     * @param hora            La hora de la reserva.
+     * @param cantidadPersonas La cantidad de personas para la reserva.
+     * @param principal       El objeto Principal que representa al usuario autenticado.
+     * @return La redirección al formulario de reservas con un indicador de éxito.
+     */
 
     @PostMapping("/formreserv")
     public String realizarReserva(@RequestParam("fecha") LocalDate fecha,

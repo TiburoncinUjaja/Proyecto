@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.restaurant.carmen"},{"l":"com.restaurant.carmen.controllers"},{"l":"com.restaurant.carmen.dto"},{"l":"com.restaurant.carmen.models"},{"l":"com.restaurant.carmen.repository"},{"l":"com.restaurant.carmen.security"},{"l":"com.restaurant.carmen.service"}];updateSearchResults();

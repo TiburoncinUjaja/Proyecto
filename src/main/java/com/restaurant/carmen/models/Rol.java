@@ -7,12 +7,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
-//Crear tabla llamada rol.
+/**
+ * Clase que representa la entidad "Rol" en la base de datos.
+ */
+
 @Entity
 @Table(name = "rol")
 public class Rol {
 	
-	//Datos que tendra la tabla
+    // Datos que contiene la tabla "rol"
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -21,7 +25,8 @@ public class Rol {
 		return id;
 	}
 	
-	//Getters and Setters and Constructors
+	// Getters y Setters para los campos
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -31,6 +36,9 @@ public class Rol {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	 // Constructores
+	
 	public Rol(Long id, String nombre) {
 		super();
 		this.id = id;
